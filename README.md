@@ -1,0 +1,1 @@
+Synergy test for Intellij IDEA and Github.
