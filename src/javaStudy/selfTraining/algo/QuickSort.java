@@ -1,4 +1,4 @@
-package javaStudy.practice.algo;
+package javaStudy.selfTraining.algo;
 
 import java.util.Arrays;
 

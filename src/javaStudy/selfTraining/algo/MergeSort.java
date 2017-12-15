@@ -1,4 +1,4 @@
-package javaStudy.practice.algo;
+package javaStudy.selfTraining.algo;
 
 public class MergeSort {
     private int[] originArr;
