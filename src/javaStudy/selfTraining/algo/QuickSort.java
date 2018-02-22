@@ -30,13 +30,13 @@ public class QuickSort {
                 right--;
             arr[left] = arr[right];
 
-            System.out.println(Arrays.toString(arr));
+//            System.out.println(Arrays.toString(arr));
 
             while (left < right && arr[left] <= pivot)
                 left++;
             arr[right] = arr[left];
 
-            System.out.println(Arrays.toString(arr));
+//            System.out.println(Arrays.toString(arr));
         }
 
         arr[left] = pivot;
