@@ -43,7 +43,7 @@ public class Goods {
      */
     public Goods(int gid, int gnum) {
         this.gid = gid;
-        this.gnum = gnum;
+    this.gnum = gnum;
     }
 
     /**

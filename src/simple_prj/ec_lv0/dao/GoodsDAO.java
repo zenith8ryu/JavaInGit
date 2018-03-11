@@ -1,6 +1,7 @@
 package simple_prj.ec_lv0.dao;
 
 import simple_prj.ec_lv0.db.DbConn;
+import simple_prj.ec_lv0.db.DbDisconn;
 import simple_prj.ec_lv0.entity.Goods;
 
 import java.sql.Connection;
@@ -13,32 +14,119 @@ public class GoodsDAO {
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
+
     /**
-     * 1. Add a new item into the "goods" table.
+     * 0. Get gid of goods by gname(unique key)
+     *
+     * @param GNAME
+     * @return
+     */
+    public int getGoodsId(String GNAME) {
+        int gid = -1;
+        conn = DbConn.getConn();
+        String searchSql = "SELECT * FROM goods where gname=?";
+
+        try {
+            pstmt = conn.prepareStatement(searchSql);
+            pstmt.setString(1, GNAME);
+            rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                gid = rs.getInt("gid");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbDisconn.queryClose(rs, pstmt, conn);
+        }
+
+        return gid;
+    }
+
+    /**
+     * 1. Add a new item into the "goods" table
      *
      * @param goods item name
      * @return boolean
      */
-
     public boolean addGoods(Goods goods) {
-        boolean bool = false;
-        conn = DbConn.get_conn();
-        String sql = "INSERT INTO GOODS(GNAME, GPRICE, GNUM) VALUES(?,?,?)";
-        
+        boolean isAdded = false;
+        conn = DbConn.getConn();
+        String addSql = "INSERT INTO GOODS(GNAME, GPRICE, GNUM) VALUES(?,?,?)";
+
         try {
-            pstmt = conn.prepareStatement(sql);
+            pstmt = conn.prepareStatement(addSql);
             pstmt.setString(1, goods.getGname());
             pstmt.setDouble(2, goods.getGprice());
             pstmt.setInt(3, goods.getGnum());
 
-            int rs = pstmt.executeUpdate();
-
+            int rsNum = pstmt.executeUpdate();
+            if (rsNum > 0) {
+                isAdded = true;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            
+            DbDisconn.addClose(pstmt, conn);
         }
 
-        return bool;
+        return isAdded;
+    }
+
+    /**
+     * 2. Update info of existed goods in "goods" table
+     *
+     * @param goods
+     * @return
+     */
+    public boolean updateGoods(Goods goods) {
+        boolean isUpdate = false;
+        Connection conn = DbConn.getConn();
+        String updateSql = "UPDATE goods SET gprice=?, gnum=? WHERE gname=?";
+
+        try {
+            pstmt = conn.prepareStatement(updateSql);
+            pstmt.setDouble(1, goods.getGprice());
+            pstmt.setInt(2, goods.getGnum());
+            pstmt.setString(3, goods.getGname());
+
+            int rsNum = pstmt.executeUpdate();
+            if (rsNum == 1) {
+                isUpdate = true;
+            } else if (rsNum > 1) {
+                System.out.println("Emergency, more than 1 data have been updated!!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isUpdate;
+    }
+
+    /**
+     * 3. delete good from "goods" table
+     *
+     * @param gid id of goods
+     * @return
+     */
+    public boolean deleteGoods(int gid) {
+        boolean isDeleted = false;
+        Connection conn = DbConn.getConn();
+        String delSql = "DELETE FROM goods WHERE gid=?";
+
+        try {
+            pstmt = conn.prepareStatement(delSql);
+            pstmt.setInt(1, gid);
+            int rsNum = pstmt.executeUpdate();
+            if (rsNum > 0) {
+                isDeleted = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DbDisconn.addClose(pstmt, conn);
+        }
+
+        return isDeleted;
     }
 }

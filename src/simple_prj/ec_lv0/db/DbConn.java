@@ -5,18 +5,12 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public final class DbConn {
-//    public static void main(String[] args) {
-//        get_conn();
-//    }
-
-
-    /*
-     * Connect MySQL DB
+    /**
+     * Connect to MySQL_DB
      *
      * @author zenith8ryu
-     *
      */
-    public static Connection get_conn() {
+    public static Connection getConn() {
         Connection conn = null;
 
         String driver = "com.mysql.jdbc.Driver";
@@ -28,10 +22,10 @@ public final class DbConn {
         try {
             Class.forName(driver);
             conn = DriverManager.getConnection(url, user, passwd);
-//            System.out.println("Connection OK!");
+            System.out.println("DB Connection OK!");
         } catch (SQLException e) {
             e.printStackTrace();
-//            System.out.println("Connection failed...");
+            System.out.println("DB Connection failed.");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }

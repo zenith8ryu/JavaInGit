@@ -7,12 +7,37 @@ import java.sql.SQLException;
 
 public final class DbDisconn {
 
-    /*
-     *  Close the data stream during access of db
+    /**
+     * Close data stream for addition, update and deletion of goods
      *
-     *  @author zenith8ryu
+     * @param pstmt
+     * @param conn
      */
-    public static void addClose(ResultSet rs, PreparedStatement pstmt, Connection conn) {
+    public static void addClose(PreparedStatement pstmt, Connection conn) {
+        try {
+            if (pstmt != null) {
+                pstmt.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    /**
+     * Close data stream for search and query of goods
+     *
+     * @param rs
+     * @param pstmt
+     * @param conn
+     */
+    public static void queryClose(ResultSet rs, PreparedStatement pstmt, Connection conn) {
         try {
             if (rs != null) {
                 rs.close();
