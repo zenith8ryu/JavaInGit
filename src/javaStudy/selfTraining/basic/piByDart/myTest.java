@@ -1,7 +1,7 @@
 package piByDart;
 
 //public class myTest {
-//	public static void main(String[] args) {
+//	public static void mainEntrance(String[] args) {
 //	
 ////		Scanner in = new Scanner(System.in);
 ////		int tries  = in.nextInt();

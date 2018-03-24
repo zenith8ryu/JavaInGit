@@ -80,5 +80,4 @@ public class ScannerInput {
 
         return price;
     }
-
 }

@@ -1,4 +1,4 @@
-package buffonPiEstimate;
+package javaStudy.selfTraining.algo;
 
 import java.util.Random;
 

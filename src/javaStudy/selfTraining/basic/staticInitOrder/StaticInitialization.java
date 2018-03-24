@@ -42,9 +42,9 @@ class Cupboard {
 
 public class StaticInitialization {
     public static void main(String[] args) {
-        System.out.println("Creating new Cupboard() in main");
+        System.out.println("Creating new Cupboard() in mainEntrance");
         new Cupboard();
-//        System.out.println("Creating new Cupboard() in main");
+//        System.out.println("Creating new Cupboard() in mainEntrance");
 //        new Cupboard();
 //        table.f2(1);
 //        cupboard.f3(1);
