@@ -19,8 +19,6 @@ public class generics {
 //        System.out.println(str_x);
 
         //----------------------------------------------------//
-
-
         Point<Integer> a = new Point<Integer>();
         a.setX(new Integer(100));
         System.out.println(a.getX());
@@ -28,9 +26,6 @@ public class generics {
         Point<Float> b = new Point<Float>();
         b.setX(new Float(100.01f));
         System.out.println(b.getX());
-
-
-
     }
 }
 
