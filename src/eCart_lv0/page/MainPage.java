@@ -1,6 +1,6 @@
-package simple_prj.ec_lv0.page;
+package eCart_lv0.page;
 
-import simple_prj.ec_lv0.tool.ScannerInput;
+import eCart_lv0.tool.ScannerInput;
 
 public class MainPage {
 
@@ -14,7 +14,7 @@ public class MainPage {
     }
 
     /**
-     * The Main UI
+     * The MainEntrance UI
      */
     public static void mainPage() {
         System.out.println("***************************\n");

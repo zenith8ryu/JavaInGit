@@ -1,8 +1,8 @@
-package simple_prj.ec_lv0.page;
+package eCart_lv0.page;
 
-import simple_prj.ec_lv0.dao.GoodsDAO;
-import simple_prj.ec_lv0.entity.Goods;
-import simple_prj.ec_lv0.tool.ScannerInput;
+import eCart_lv0.dao.GoodsDAO;
+import eCart_lv0.entity.Goods;
+import eCart_lv0.tool.ScannerInput;
 
 public class GoodsPage {
 

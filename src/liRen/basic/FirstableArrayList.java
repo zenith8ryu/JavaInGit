@@ -1,4 +1,4 @@
-package linren;
+package liRen.basic;
 
 import java.util.ArrayList;
 

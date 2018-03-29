@@ -1,8 +1,8 @@
-package simple_prj.ec_lv0.dao;
+package eCart_lv0.dao;
 
-import simple_prj.ec_lv0.db.DbConn;
-import simple_prj.ec_lv0.db.DbDisconn;
-import simple_prj.ec_lv0.entity.Goods;
+import eCart_lv0.db.DbConn;
+import eCart_lv0.db.DbDisconn;
+import eCart_lv0.entity.Goods;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

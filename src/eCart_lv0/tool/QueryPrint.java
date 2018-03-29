@@ -1,6 +1,4 @@
-package simple_prj.ec_lv0.tool;
-
-import simple_prj.ec_lv0.db.DbConn;
+package eCart_lv0.tool;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

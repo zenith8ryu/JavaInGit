@@ -1,4 +1,4 @@
-package simple_prj.ec_lv0.entity;
+package eCart_lv0.entity;
 
 
 /**

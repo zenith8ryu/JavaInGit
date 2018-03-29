@@ -1,4 +1,4 @@
-package simple_prj.ec_lv0.tool;
+package eCart_lv0.tool;
 
 import java.util.Scanner;
 

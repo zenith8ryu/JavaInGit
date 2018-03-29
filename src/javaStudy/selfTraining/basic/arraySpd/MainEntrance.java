@@ -1,26 +1,26 @@
-package arrayTraining;
+package javaStudy.selfTraining.basic.arraySpd;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class MainEntrance {
     public static void main(String[] args) {
+        Integer[] arr = new Integer[1000000];
+        List<Integer> list = new ArrayList<>();
+
         Integer sum1 = 0;
         Integer sum2 = 0;
-        Integer[] arrays = new Integer[1000000];
-        List list = new ArrayList();
 
-
-        Long time1 = System.currentTimeMillis();
-        for (int i = 0; i < 100000000; i++) {
-            sum1 += arrays[i % 10];
-        }
-        Long time2 = System.currentTimeMillis();
-        System.out.println("数组求和所花费时间：" + (time2 - time1) + "毫秒");
+//        Long time1 = System.currentTimeMillis();
+//        for (int i = 0; i < 100000000; i++) {
+//            sum1 += arr[i % 10];
+//        }
+//        Long time2 = System.currentTimeMillis();
+//        System.out.println("数组求和所花费时间：" + (time2 - time1) + "毫秒");
 
         Long time3 = System.currentTimeMillis();
         for (int i = 0; i < 100000000; i++) {
-            sum2 += (Integer) list.get(i % 10);
+            sum2 += list.get(i % 10);
         }
         Long time4 = System.currentTimeMillis();
         System.out.println("List求和所花费时间：" + (time4 - time3) + "毫秒");

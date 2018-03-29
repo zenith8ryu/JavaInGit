@@ -1,4 +1,4 @@
-package simple_prj.ec_lv0.db;
+package eCart_lv0.db;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
