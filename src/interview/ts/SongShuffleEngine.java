@@ -1,8 +1,8 @@
 package interview.ts;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import liRen.basic.FirstableArrayList;
+
+import java.util.*;
 
 public class SongShuffleEngine {
     public static void main(String[] args) {
@@ -10,14 +10,11 @@ public class SongShuffleEngine {
         Song s02 = new Song("JPop", "a", "album1", "track1-2");
         Song s03 = new Song("JPop", "a", "album2", "track2-1");
         Song s04 = new Song("JPop", "b", "album3", "track3-1");
-
         Song s05 = new Song("Rock", "r", "album4", "track4-1");
-
         Song s06 = new Song("Soundtrack", "j", "album5", "track5-1");
         Song s07 = new Song("Soundtrack", "j", "album6", "track6-1");
         Song s08 = new Song("Soundtrack", "j", "album6", "track6-2");
         Song s09 = new Song("Soundtrack", "j", "album6", "track6-3");
-
         Song s10 = new Song("Metal", "v", "album7", "track7-1");
 
         List<Song> songList = new ArrayList<>();
@@ -32,24 +29,18 @@ public class SongShuffleEngine {
         songList.add(s09);
         songList.add(s10);
 
-
         //raw list of songs
         Song[] songs = new Song[songList.size()];
         for (int i = 0, j = songList.size(); i < j; i++) {
             songs[i] = songList.get(i);
         }
 
-        HashMap<String, ArrayList<Song>> hmap = ShuffleArgo.sortByArtist(songs);
-        for (HashMap.Entry entry : hmap.entrySet()) {
-            System.out.println(entry.getValue());
+        Song[] shuffledSongs = ShuffleArgo.ShuffleExec(songs);
+
+        for (Song song : shuffledSongs) {
+            System.out.println(song.getTrackTitle());
         }
 
-        //shuffled list
-//        ShuffleArgo.Shuffle(songs);
-//        for (Song song : songs) {
-//            System.out.println(song.getArtistName());
-//            System.out.println(song.getTrackTitle());
-//        }
     }
 }
 
@@ -82,35 +73,83 @@ class ShuffleExec implements ShuffleEngine {
 
 class ShuffleArgo {
     //Fisher–Yates shuffle
-    public static <T> void Shuffle(T[] arr) {
-        for (int i = arr.length - 1; i > 0; i--) {
+    public static <E> void Shuffle(List<E> list) {
+        for (int i = list.size() - 1; i > 0; i--) {
             int j = (int) (Math.random() * (i + 1));
-            T swap = arr[i];
-            arr[i] = arr[j];
-            arr[j] = swap;
+            E swap = list.get(i);
+            list.set(i, list.get(j));
+            list.set(j, swap);
         }
     }
 
-    public static HashMap<String, ArrayList<Song>> sortByArtist(Song[] arr) {
+    public static HashMap<String, ArrayList<Song>> shuffledSortByArtist(Song[] arr) {
         HashMap<String, ArrayList<Song>> mergedList = new HashMap<>();
-        ArrayList<Song> sameArtistSongs = new ArrayList<Song>();
-        String artistNm;
 
         for (Song song : arr) {
-            artistNm = song.getArtistName();
+            String artistNm = song.getArtistName();
 
             if (!mergedList.containsKey(artistNm)) {
+
+//                System.out.println(artistNm);
+
+                ArrayList<Song> sameArtistSongs = new ArrayList<>();
                 sameArtistSongs.add(song);
                 mergedList.put(artistNm, sameArtistSongs);
-                sameArtistSongs.clear();
             } else {
-                sameArtistSongs = mergedList.get(artistNm);
-                sameArtistSongs.add(song);
-                mergedList.put(artistNm, sameArtistSongs);
-                sameArtistSongs.clear();
+                mergedList.get(artistNm).add(song);
             }
+
+            //Shuffle songs of same artist
+            ShuffleArgo.Shuffle(mergedList.get(artistNm));
+
+//            System.out.println(artistNm);
         }
 
+//        for (HashMap.Entry<String, ArrayList<Song>> entry : mergedList.entrySet()) {
+//            System.out.println(entry.getKey() + ", num is : " + entry.getValue().size());
+        }
+
+//        System.out.println(mergedList.size());
         return mergedList;
+    }
+
+    public static Song[] ShuffleExec(Song[] songs) {
+        Song[] shuffledSongContainer = new Song[songs.length];
+
+        int[] indexContainer = new int[songs.length];
+        HashMap<Integer, Song> indexedSongContainer = new HashMap<>();
+
+        for (HashMap.Entry<String, ArrayList<Song>> entry : ShuffleArgo.shuffledSortByArtist(songs).entrySet()) {
+            int indexScaleUnit = Integer.MAX_VALUE / (entry.getValue().size() + 1);
+//            System.out.println("artist=" + entry.getKey() + ", song num=" + entry.getValue().size());
+            int i = 0;
+            int j = 0;
+
+            for (Song song : entry.getValue()) {
+                /* add a random variable range of 0~30% based on the original index,
+                   to increase the randomnesss of the song list
+                */
+                int idx = indexScaleUnit * (i + (int) (Math.random() * 0.3));
+
+                if (Arrays.asList(indexContainer).contains(idx)) {
+                    //To avoid overwrite of existed index & and indexed-song in their container.
+                    idx = idx + (int) (Math.random() * 1e10);
+                }
+
+                indexContainer[i] = indexScaleUnit * i;
+                indexedSongContainer.put(idx, song);
+                i++;
+            }
+
+            MergeSort.sortExec(indexContainer);
+
+            for (int idx : indexContainer) {
+                shuffledSongContainer[j++] = indexedSongContainer.get(idx);
+            }
+
+        }
+
+
+        return shuffledSongContainer;
     }
 }
