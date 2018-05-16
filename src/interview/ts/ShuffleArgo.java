@@ -1,12 +1,20 @@
 package interview.ts;
 
+import interview.ts.tool.MergeSort;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
 public class ShuffleArgo {
-    public static Song[] shuffleSongExec(Song[] inputArr) {
+    /**
+     * @param inputArr (not null) : A list of songs without any rearrangement.
+     *
+     * @return shuffledSongTbl : A rearranged list of songs,
+     * decrease the probability of consecutively play of the songs from a same artist .
+     */
+    public static Song[] songListShuffler(Song[] inputArr) {
         Song[] shuffledSongTbl = new Song[inputArr.length];
 
         int[] indexContainer = new int[inputArr.length];
@@ -19,15 +27,15 @@ public class ShuffleArgo {
 
             for (Song song : entry.getValue()) {
 
-
-                /* vary the range by 0~30% based on the original index,
-                   to increase the randomnesss of the song list
+                /*  vary the range by 0~30% based on the origin,
+                    to increase the randomnesss of the sorted song list.
                 */
                 int songIndex = (int) (scaleUnit * (innerLoop + Math.abs(Math.random() * 0.3)));
 
-
+                /*  To avoid overwrite of existed song index &
+                    and indexed-song in their containers.
+                */
                 if (Arrays.asList(indexContainer).contains(songIndex)) {
-                    //To avoid overwrite of existed index & and indexed-song in their container.
                     songIndex = (int) (songIndex * (1 + Math.abs(Math.random() * 0.1)));
                 }
 
@@ -39,7 +47,7 @@ public class ShuffleArgo {
             }
         }
 
-        //rearrange song index by merge-sort method
+        //rearrange song index list by merge-sort method
         MergeSort.sortExec(indexContainer);
 
         for (int i = 0; i < indexContainer.length; i++) {
@@ -49,6 +57,12 @@ public class ShuffleArgo {
         return shuffledSongTbl;
     }
 
+
+    /**
+     * @param inputArr (not null) : A list of songs without any rearrangement.
+     *
+     * @return sortedSongTbl : A list of songs sorted by artist name.
+     */
     public static HashMap<String, List<Song>> sortByArtist(Song[] inputArr) {
         HashMap<String, List<Song>> sortedSongTbl = new HashMap<>();
 
@@ -63,20 +77,30 @@ public class ShuffleArgo {
                 sortedSongTbl.get(artistNm).add(song);
             }
 
-            //Shuffle order of songs by the same artist
+            //Shuffle the order of songs of a same artist.
             ShuffleArgo.Shuffle(sortedSongTbl.get(artistNm));
         }
 
         return sortedSongTbl;
     }
 
-    //Fisher–Yates shuffle
+    //Fisher–Yates shuffle method.
     public static <T> void Shuffle(List<T> list) {
         for (int i = list.size() - 1; i > 0; i--) {
             int j = (int) (Math.abs(Math.random()) * (i + 1));
             T swap = list.get(i);
             list.set(i, list.get(j));
             list.set(j, swap);
+        }
+    }
+
+    //Fisher–Yates shuffle method (array ver.).
+    public static <T> void Shuffle(T[] arr) {
+        for (int i = arr.length - 1; i > 0; i--) {
+            int j = (int) (Math.random() * (i + 1));
+            T swap = arr[i];
+            arr[i] = arr[j];
+            arr[j] = swap;
         }
     }
 

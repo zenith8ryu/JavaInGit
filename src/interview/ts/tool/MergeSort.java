@@ -1,5 +1,8 @@
-package interview.ts;
+package interview.ts.tool;
 
+/**
+ * A common merge-sort realization by in-place algorithm.
+ */
 public class MergeSort {
     private static int[] originArr;
     private static int arrLen;
@@ -10,7 +13,6 @@ public class MergeSort {
         arrLen = inputArr.length;
         tempArr = new int[arrLen];
         mergeSort(0, arrLen - 1);
-
     }
 
     private static void mergeSort(int low, int high) {

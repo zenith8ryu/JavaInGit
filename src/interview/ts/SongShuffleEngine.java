@@ -1,10 +1,7 @@
 package interview.ts;
 
-import com.sun.istack.internal.NotNull;
-
-import java.util.*;
-
-import static java.lang.Thread.sleep;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SongShuffleEngine {
     public static void main(String[] args) {
@@ -31,45 +28,18 @@ public class SongShuffleEngine {
         songList.add(s09);
         songList.add(s10);
 
-        //raw list of songs
+        //list of songs without rearrange.
         Song[] songs = new Song[songList.size()];
         for (int i = 0, j = songList.size(); i < j; i++) {
             songs[i] = songList.get(i);
         }
 
-        Song[] shuffledSongs = ShuffleArgo.shuffleSongExec(songs);
+        new ShuffleEngineExec().setSongs(songs);
 
-        for (Song song : shuffledSongs) {
+        for (Song song : songs) {
             System.out.println(song.getTrackTitle());
         }
 
-    }
-}
-
-interface ShuffleEngine {
-    void setSongs(Song[] songs);
-
-    Song getNextSong();
-
-    Song[] peekQueue();
-}
-
-class ShuffleExec implements ShuffleEngine {
-    public static final Integer PEEKMAX = 5;
-
-    @Override
-    public void setSongs(Song[] songs) {
-
-    }
-
-    @Override
-    public Song getNextSong() {
-        return null;
-    }
-
-    @Override
-    public Song[] peekQueue() {
-        return new Song[0];
     }
 }
 
