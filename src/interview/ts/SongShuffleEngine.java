@@ -1,6 +1,6 @@
 package interview.ts;
 
-import liRen.basic.FirstableArrayList;
+import com.sun.istack.internal.NotNull;
 
 import java.util.*;
 
@@ -37,10 +37,10 @@ public class SongShuffleEngine {
             songs[i] = songList.get(i);
         }
 
-        Song[] shuffledSongs = ShuffleArgo.ShuffleExec(songs);
+        Song[] shuffledSongs = ShuffleArgo.shuffleSongExec(songs);
 
         for (Song song : shuffledSongs) {
-//            System.out.println(song.getTrackTitle());
+            System.out.println(song.getTrackTitle());
         }
 
     }
@@ -73,82 +73,3 @@ class ShuffleExec implements ShuffleEngine {
     }
 }
 
-class ShuffleArgo {
-    //Fisher–Yates shuffle
-    public static <E> void Shuffle(List<E> list) {
-        for (int i = list.size() - 1; i > 0; i--) {
-            int j = (int) (Math.random() * (i + 1));
-            E swap = list.get(i);
-            list.set(i, list.get(j));
-            list.set(j, swap);
-        }
-    }
-
-    public static HashMap<String, ArrayList<Song>> shuffledSortByArtist(Song[] arr) {
-        HashMap<String, ArrayList<Song>> mergedList = new HashMap<>();
-
-        for (Song song : arr) {
-            String artistNm = song.getArtistName();
-
-            if (!mergedList.containsKey(artistNm)) {
-                ArrayList<Song> sameArtistSongs = new ArrayList<>();
-                sameArtistSongs.add(song);
-                mergedList.put(artistNm, sameArtistSongs);
-            } else {
-                mergedList.get(artistNm).add(song);
-            }
-
-            //Shuffle songs of same artist
-            ShuffleArgo.Shuffle(mergedList.get(artistNm));
-        }
-
-        return mergedList;
-    }
-
-    public static Song[] ShuffleExec(Song[] songs) {
-        Song[] shuffledSongContainer = new Song[songs.length];
-
-        int[] indexContainer = new int[songs.length];
-        HashMap<Integer, Song> indexedSongContainer = new HashMap<>();
-
-        for (HashMap.Entry<String, ArrayList<Song>> entry : ShuffleArgo.shuffledSortByArtist(songs).entrySet()) {
-            int indexScaleUnit = Integer.MAX_VALUE / (entry.getValue().size());
-//            int indexScaleUnit = (int) (1e10 / (entry.getValue().size()));
-//            System.out.println("artist=" + entry.getKey() + ", song num=" + entry.getValue().size());
-            int i = 0;
-            int j = 0;
-
-            for (Song song : entry.getValue()) {
-                /* add a random variable range of 0~30% based on the original index,
-                   to increase the randomnesss of the song list
-                */
-                int idx = indexScaleUnit * (i + (int) (Math.random() * 0.3));
-//                System.out.println(song.getTrackTitle() + ", idx : " + idx + " , unit : " + indexScaleUnit);
-
-                if (Arrays.asList(indexContainer).contains(idx)) {
-                    //To avoid overwrite of existed index & and indexed-song in their container.
-                    idx = idx + (int) (Math.random() * 1e10);
-                }
-
-                System.out.println(song.getTrackTitle() + ", idx : " + idx + " , unit : " + indexScaleUnit);
-                indexContainer[i] = indexScaleUnit * i;
-                indexedSongContainer.put(idx, song);
-                i++;
-            }
-
-            MergeSort.sortExec(indexContainer);
-
-            for (int idx : indexContainer) {
-                shuffledSongContainer[j++] = indexedSongContainer.get(idx);
-            }
-
-        }
-
-        for (int i2 : indexContainer) {
-//            System.out.println(i2);
-        }
-
-
-        return shuffledSongContainer;
-    }
-}
