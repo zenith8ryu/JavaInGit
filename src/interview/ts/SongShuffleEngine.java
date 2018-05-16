@@ -4,6 +4,8 @@ import liRen.basic.FirstableArrayList;
 
 import java.util.*;
 
+import static java.lang.Thread.sleep;
+
 public class SongShuffleEngine {
     public static void main(String[] args) {
         Song s01 = new Song("JPop", "a", "album1", "track1-1");
@@ -38,7 +40,7 @@ public class SongShuffleEngine {
         Song[] shuffledSongs = ShuffleArgo.ShuffleExec(songs);
 
         for (Song song : shuffledSongs) {
-            System.out.println(song.getTrackTitle());
+//            System.out.println(song.getTrackTitle());
         }
 
     }
@@ -89,9 +91,6 @@ class ShuffleArgo {
             String artistNm = song.getArtistName();
 
             if (!mergedList.containsKey(artistNm)) {
-
-//                System.out.println(artistNm);
-
                 ArrayList<Song> sameArtistSongs = new ArrayList<>();
                 sameArtistSongs.add(song);
                 mergedList.put(artistNm, sameArtistSongs);
@@ -101,15 +100,8 @@ class ShuffleArgo {
 
             //Shuffle songs of same artist
             ShuffleArgo.Shuffle(mergedList.get(artistNm));
-
-//            System.out.println(artistNm);
         }
 
-//        for (HashMap.Entry<String, ArrayList<Song>> entry : mergedList.entrySet()) {
-//            System.out.println(entry.getKey() + ", num is : " + entry.getValue().size());
-        }
-
-//        System.out.println(mergedList.size());
         return mergedList;
     }
 
@@ -120,7 +112,8 @@ class ShuffleArgo {
         HashMap<Integer, Song> indexedSongContainer = new HashMap<>();
 
         for (HashMap.Entry<String, ArrayList<Song>> entry : ShuffleArgo.shuffledSortByArtist(songs).entrySet()) {
-            int indexScaleUnit = Integer.MAX_VALUE / (entry.getValue().size() + 1);
+            int indexScaleUnit = Integer.MAX_VALUE / (entry.getValue().size());
+//            int indexScaleUnit = (int) (1e10 / (entry.getValue().size()));
 //            System.out.println("artist=" + entry.getKey() + ", song num=" + entry.getValue().size());
             int i = 0;
             int j = 0;
@@ -130,12 +123,14 @@ class ShuffleArgo {
                    to increase the randomnesss of the song list
                 */
                 int idx = indexScaleUnit * (i + (int) (Math.random() * 0.3));
+//                System.out.println(song.getTrackTitle() + ", idx : " + idx + " , unit : " + indexScaleUnit);
 
                 if (Arrays.asList(indexContainer).contains(idx)) {
                     //To avoid overwrite of existed index & and indexed-song in their container.
                     idx = idx + (int) (Math.random() * 1e10);
                 }
 
+                System.out.println(song.getTrackTitle() + ", idx : " + idx + " , unit : " + indexScaleUnit);
                 indexContainer[i] = indexScaleUnit * i;
                 indexedSongContainer.put(idx, song);
                 i++;
@@ -147,6 +142,10 @@ class ShuffleArgo {
                 shuffledSongContainer[j++] = indexedSongContainer.get(idx);
             }
 
+        }
+
+        for (int i2 : indexContainer) {
+//            System.out.println(i2);
         }
 
 
