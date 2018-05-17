@@ -1,6 +1,7 @@
 package interview.ts;
 
 public interface ShuffleEngine {
+    //先読み曲数（１曲以上）
     public final Integer PEEKMAX = 5;
 
     //シャッフル対象の曲(Song)の配列をインスタンスに設定します。

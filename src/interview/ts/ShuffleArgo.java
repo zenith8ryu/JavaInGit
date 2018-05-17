@@ -94,14 +94,4 @@ public class ShuffleArgo {
         }
     }
 
-    //Fisher–Yates shuffle method (array ver.).
-    public static <T> void Shuffle(T[] arr) {
-        for (int i = arr.length - 1; i > 0; i--) {
-            int j = (int) (Math.random() * (i + 1));
-            T swap = arr[i];
-            arr[i] = arr[j];
-            arr[j] = swap;
-        }
-    }
-
 }

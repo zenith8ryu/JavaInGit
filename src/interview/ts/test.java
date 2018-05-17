@@ -6,9 +6,14 @@ import java.util.Random;
 
 public class test {
     public static void main(String[] args) {
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            System.out.println(Math.abs(random.nextInt()));
-        }
+//        int a = (int) Math.ceil((double) 11 / 5) - 1;
+//        System.out.println(a);
+        int a = 0;
+
+//        if (a > 0) {
+//            int
+//        } else {
+//        }
+
     }
 }

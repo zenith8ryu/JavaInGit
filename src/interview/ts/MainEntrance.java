@@ -3,7 +3,7 @@ package interview.ts;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SongShuffleEngine {
+public class MainEntrance {
     public static void main(String[] args) {
         Song s01 = new Song("JPop", "a", "album1", "track1-1");
         Song s02 = new Song("JPop", "a", "album1", "track1-2");
@@ -15,6 +15,8 @@ public class SongShuffleEngine {
         Song s08 = new Song("Soundtrack", "j", "album6", "track6-2");
         Song s09 = new Song("Soundtrack", "j", "album6", "track6-3");
         Song s10 = new Song("Metal", "v", "album7", "track7-1");
+        Song s11 = new Song("Metal", "v", "album7", "track7-2");
+        Song s12 = new Song("Country", "r", "album8", "track8-1");
 
         List<Song> songList = new ArrayList<>();
         songList.add(s01);
@@ -27,6 +29,8 @@ public class SongShuffleEngine {
         songList.add(s08);
         songList.add(s09);
         songList.add(s10);
+        songList.add(s11);
+        songList.add(s12);
 
         //list of songs without rearrange.
         Song[] songs = new Song[songList.size()];
@@ -34,11 +38,25 @@ public class SongShuffleEngine {
             songs[i] = songList.get(i);
         }
 
-        new ShuffleEngineExec().setSongs(songs);
+//        new ShuffleExecutor().setSongs(songs);
 
-        for (Song song : songs) {
-            System.out.println(song.getTrackTitle());
+        ShuffleExecutor songExe = new ShuffleExecutor(songs);
+        songExe.peekQueue();
+        for (int i = 0; i < songs.length + 2; i ++) {
+            System.out.println(songExe.getNextSong().getTrackTitle());
         }
+//        System.out.println("---------------------");
+//        Song[] newSongs2 = songExe.peekQueue();
+//        System.out.println("---------------------");
+//        Song[] newSongs3 = songExe.peekQueue();
+//        System.out.println("---------------------");
+//        Song[] newSongs4 = songExe.peekQueue();
+//        System.out.println("---------------------");
+//        Song[] newSongs5 = songExe.peekQueue();
+
+//        for (Song song : newSongs) {
+//            System.out.println(song.getTrackTitle());
+//        }
 
     }
 }
