@@ -1,4 +1,4 @@
-package interview.ts;
+package songShuffler;
 
 public class ShuffleExecutor implements ShuffleEngine {
     private Song[] currentSongsList;
@@ -10,6 +10,7 @@ public class ShuffleExecutor implements ShuffleEngine {
         this.currentSongsList = new Song[songs.length];
         this.currentSongsQueue = new Song[PEEKMAX];
         setSongs(songs);
+        peekQueue();
     }
 
     @Override
@@ -53,13 +54,8 @@ public class ShuffleExecutor implements ShuffleEngine {
             queueEnd = PEEKMAX - 1;
         }
 
-//        System.out.println("queue is : " + currentQueueNo + "/" + maxQueueNo);
-//        System.out.println("queue starts at : " + queueStart);
-//        System.out.println("queue ends at : " + queueEnd);
-
         for (int i = 0, j = queueStart; i + j <= queueEnd; i++) {
             currentSongsQueue[i] = currentSongsList[i + j];
-//            System.out.println(currentSongsQueue[i].getTrackTitle());
         }
 
         return currentSongsQueue;

@@ -1,6 +1,6 @@
-package interview.ts;
+package songShuffler;
 
-import interview.ts.tool.MergeSort;
+import songShuffler.tool.MergeSortArgo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -48,7 +48,7 @@ public class ShuffleArgo {
         }
 
         //rearrange song index list by merge-sort method
-        MergeSort.sortExec(indexContainer);
+        MergeSortArgo.sortExec(indexContainer);
 
         for (int i = 0; i < indexContainer.length; i++) {
             shuffledSongTbl[i] = indexedSongContainer.get(indexContainer[i]);

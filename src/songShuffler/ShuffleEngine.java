@@ -1,4 +1,4 @@
-package interview.ts;
+package songShuffler;
 
 public interface ShuffleEngine {
     //先読み曲数（１曲以上）

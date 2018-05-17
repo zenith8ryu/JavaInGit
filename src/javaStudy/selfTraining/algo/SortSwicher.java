@@ -7,7 +7,7 @@
 //        switch (st) {
 //            case MERGE_SORT:
 //                System.out.println("Test start: " + st);
-//                MergeSort ms = new MergeSort();
+//                MergeSortArgo ms = new MergeSortArgo();
 //
 //
 //        }

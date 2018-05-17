@@ -1,9 +1,9 @@
-package interview.ts.tool;
+package songShuffler.tool;
 
 /**
  * A common merge-sort realization by in-place algorithm.
  */
-public class MergeSort {
+public class MergeSortArgo {
     private static int[] originArr;
     private static int arrLen;
     private static int[] tempArr = new int[arrLen];

@@ -1,0 +1,16 @@
+genre,artistName,albumTitle,trackTitle
+Jpop,a,album1,track1
+Jpop,a,album1,track2
+Jpop,b,album2,track3
+Jpop,b,album3,track4
+Rock,c,album4,track5
+Soundtrack,d,album5,track6
+Soundtrack,d,album6,track7
+Soundtrack,d,album6,track8
+Soundtrack,e,album7,track9
+Metal,f,album8,track10
+Metal,g,album9,track11
+Country,h,album10,track12
+Country,h,album10,track13
+Country,h,album10,track14
+Country,h,album10,track15

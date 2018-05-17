@@ -1,4 +1,4 @@
-package interview.ts;
+package songShuffler;
 
 public class Song {
     String genre;

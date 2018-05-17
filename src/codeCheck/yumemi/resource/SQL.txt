@@ -1,0 +1,65 @@
+CREATE TABLE users (
+  id integer PRIMARY KEY AUTO_INCREMENT,
+  name text NOT NULL,
+  password text NOT NULL,
+  gender integer,
+  created_at text NOT NULL,
+  deleted_at text NULL
+);
+
+
+SQL Challenge (中級)
+
+これはcodecheckのチャレンジです。
+初めての方はまずチュートリアルをご覧ください。
+
+このチャレンジのテーブル構造はsql/createDB.sqlに記載されています。
+
+データ構造には、以下の様ないくつかのルールがあります。
+
+    gender:
+        1 は男性です。
+        2 は女性です。
+    deleted_at
+        削除した日時を含みます。
+        このカラムはもし削除されていない場合はNullになります。
+
+Step1. SELECTを使おう
+
+全てのユーザデータをuserテーブルから取得するSQLを
+showAll.sql記載してください。
+Step2. WHEREを使おう
+
+全てのユーザデータの中から、削除されてないユーザーのデータを取得するSQLを
+where.sqlに記載してください。
+Step3. COLUMNを絞って表示しよう
+
+全てのユーザデータの中から、削除されてない、
+且つパスワードを表示しないデータを取得するSQLを記述してください。
+回答は以下のファイルに記載してください。
+column.sql
+Step4. ユーザを登録しよう
+
+以下の詳細のユーザをusersテーブルに登録するSQLを記述してください。
+
+    nameがJohn Legendary
+    passwordが75D2DB8E-45E5-08D5-6669-BBA06F615472
+    created_atが2017-04-01 08:13:56
+
+回答は以下のファイルに記載してください。
+createJohn.sql
+Step5. 重複userを見つけよう
+
+バグのため、重複したuserがデータベースの中にいる。全てのユーザデータの中から、
+idは固有であるがそれ以外のデータが全く同一のuserを取得するSQLを記述してください。
+回答は以下のファイルに記載してください。
+showDuplicates.sql
+Step6. 重複userを削除しよう
+
+Step5.で取得したuserデータのうち、idが大きい方の重複しているユーザーを削除するSQLを記述してください。
+回答は以下のファイルに記載してください。
+deleteDuplicates.sql
+Answer.md
+
+answer.mdを用意してあるので、その中に
+クエリに関する説明、実装した際に工夫した点などを自由に記述してください。
