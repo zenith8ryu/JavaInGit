@@ -1,6 +1,6 @@
-package songShuffler;
+package interview.songShuffler;
 
-import songShuffler.tool.DataReader;
+import interview.songShuffler.tool.DataReader;
 
 import java.util.ArrayList;
 import java.util.List;

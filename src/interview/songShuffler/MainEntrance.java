@@ -1,9 +1,9 @@
-package songShuffler;
+package interview.songShuffler;
 
 public class MainEntrance {
     public static void main(String[] args) {
         //Songデータ（csv形式）の保存先
-        String filePath = "./src/songShuffler/csv/songData.csv";
+        String filePath = "./src/interview.songShuffler/csv/songData.csv";
 
         //Songデータを取り込む
         Song[] songs = RawSongData.execute(filePath, true);

@@ -1,6 +1,6 @@
-package songShuffler;
+package interview.songShuffler;
 
-import songShuffler.tool.MergeSortArgo;
+import interview.songShuffler.tool.MergeSortArgo;
 
 import java.util.ArrayList;
 import java.util.Arrays;

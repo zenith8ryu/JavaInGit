@@ -1,6 +1,5 @@
 package codeCheck.yumemi.code;
 
-import com.sun.istack.internal.NotNull;
 import tools.CsvReader;
 
 import java.util.*;
@@ -67,7 +66,7 @@ public class problem2 {
      * @param scoreList
      * @return [key] id, [val] mean score.
      */
-    public static HashMap<String, Integer> avgScoreCalc(@NotNull ArrayList<String> scoreList) {
+    public static HashMap<String, Integer> avgScoreCalc(ArrayList<String> scoreList) {
         HashMap<String, Integer> meanScoreList = new HashMap<>();
         String id;
         int sumScore;
@@ -90,7 +89,7 @@ public class problem2 {
         return meanScoreList;
     }
 
-    public static ArrayList<String> dropoutIdSearch(@NotNull ArrayList<String> scoreList) {
+    public static ArrayList<String> dropoutIdSearch(ArrayList<String> scoreList) {
         ArrayList<String> nameList = new ArrayList<>();
         int dropoutCnts;
         String id;

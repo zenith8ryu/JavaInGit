@@ -1,6 +1,6 @@
-package polymorPrct01;
+package javaStudy.selfTraining.basic.polymorPrct01;
 
-public class JNC extends Wine {
+public class JNC extends polymorPrct01.Wine {
 	public JNC() {
 		setName("JNC");
 	}
