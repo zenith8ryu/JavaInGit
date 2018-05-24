@@ -1,10 +1,13 @@
 package challenge;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class test {
     public static void main(String[] args) {
-        System.out.println(Tools.toQuo(100));
+        int num = Integer.parseInt("0000000000", 4);
+        String str = Integer.toString(num);
+        String modStr = String.format("%10s",str.replaceAll(" ", "0"));
+        String modStr2 = String.format("%10s", Integer.toString(num, 4)).replaceAll(" ", "0");
+
+
+        System.out.println(modStr);
     }
 }

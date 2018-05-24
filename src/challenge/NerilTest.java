@@ -7,9 +7,12 @@ import java.util.HashMap;
 public class NerilTest {
 
     public static void main(String[] args) {
-        int end = (int) Math.pow(4, 10);
-        for (int i = 0; i < end; i++) {
-            String ansStr = String.format("%010d", Integer.valueOf(Tools.toQuo(i)));
+        int start = Integer.parseInt("0000000000", 4);
+        int end = Integer.parseInt("3333333333", 4);
+
+
+        for (int i = start; i <= end; i++) {
+            String ansStr = String.format("%10s", Integer.toString(i, 4)).replaceAll(" ", "0");
             HashMap<Integer, String> ansList = Tools.ansFulfill(ansStr);
 
             if (!question01.ansCheck(ansList)) {
@@ -44,12 +47,13 @@ public class NerilTest {
             }
 
 
+            System.out.println("Round" + i);
             for (HashMap.Entry<Integer, String> ent : ansList.entrySet()) {
                 System.out.println(ent.getValue());
             }
         }
-
     }
+
 }
 
 

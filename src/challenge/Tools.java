@@ -2,27 +2,8 @@ package challenge;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Stack;
 
 public class Tools {
-    private static char[] array = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    private static String numStr = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    public static String decimal_to_n(long number, int N) {
-        Long rest = number;
-        Stack<Character> stack = new Stack<>();
-        StringBuilder result = new StringBuilder(0);
-        while (rest != 0) {
-            stack.add(array[new Long((rest % N)).intValue()]);
-            rest = rest / N;
-        }
-        for (; !stack.isEmpty(); ) {
-            result.append(stack.pop());
-        }
-
-        return result.length() == 0 ? "0" : result.toString();
-    }
-
     public static int strToAscii(String str) {
         byte[] bytes = str.getBytes();
         byte b = bytes[0];
@@ -30,26 +11,7 @@ public class Tools {
         for (int i = 0; i < bytes.length; i++) {
             b = bytes[i];
         }
-        return Integer.valueOf(b);
-    }
-
-    public static int toQuo(int num) {
-        int res = 0;
-        if (num > 0) {
-            toQuo(num / 4);
-            res = num % 4;
-        }
-
-        return res;
-    }
-
-    public static void toBin(int num) {
-        if (num > 0) {
-            toBin(num / 2);
-
-            System.out.print(num % 2);
-        }
-
+        return (int) b;
     }
 
     public static int charToAscii(char c) {
@@ -100,4 +62,5 @@ public class Tools {
 
         return ansList;
     }
+
 }
