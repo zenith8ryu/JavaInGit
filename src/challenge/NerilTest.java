@@ -1,47 +1,55 @@
 package challenge;
 
+import challenge.question.*;
+
 import java.util.HashMap;
-import java.util.Stack;
 
 public class NerilTest {
-    private static char[] array = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-    private static String numStr = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static void main(String[] args) {
-        String ansNum = String.format("%010d", Integer.valueOf(_10_to_N(10, 2)));
-//        System.out.println(ansNum);
-        for (HashMap.Entry<Integer, String> ent : ansFulfill(ansNum).entrySet()) {
-            System.out.println(ent.getValue());
+        int end = (int) Math.pow(4, 10);
+        for (int i = 0; i < end; i++) {
+            String ansStr = String.format("%010d", Integer.valueOf(Tools.toQuo(i)));
+            HashMap<Integer, String> ansList = Tools.ansFulfill(ansStr);
+
+            if (!question01.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question02.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question03.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question04.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question05.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question06.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question07.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question08.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question09.ansCheck(ansList)) {
+                continue;
+            }
+            if (!question10.ansCheck(ansList)) {
+                continue;
+            }
+
+
+            for (HashMap.Entry<Integer, String> ent : ansList.entrySet()) {
+                System.out.println(ent.getValue());
+            }
         }
+
     }
-
-
-    public static String _10_to_N(long number, int N) {
-        Long rest = number;
-        Stack<Character> stack = new Stack<>();
-        StringBuilder result = new StringBuilder(0);
-        while (rest != 0) {
-            stack.add(array[new Long((rest % N)).intValue()]);
-            rest = rest / N;
-        }
-        for (; !stack.isEmpty(); ) {
-            result.append(stack.pop());
-        }
-
-        return result.length() == 0 ? "0" : result.toString();
-    }
-
-    public static HashMap<Integer, String> ansFulfill(String ansNum) {
-        HashMap<Integer, String> ansList = new HashMap<>();
-        int k = 1;
-
-        for (String s : ansNum.split("")) {
-            ansList.put(k++, s);
-        }
-
-        return ansList;
-    }
-
 }
 
 

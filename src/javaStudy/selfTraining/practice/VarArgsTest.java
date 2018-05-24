@@ -7,11 +7,11 @@ public class VarArgsTest {
      */
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        // 向上转型
+        // up-cast
         Base base = new Sub();
         base.print("hello");
 
-        // 不转型
+        // no cast
         String[] t = {"a", "b"};
 
         Sub sub = new Sub();
@@ -21,14 +21,14 @@ public class VarArgsTest {
 
 }
 
-// 基类
+// super class
 class Base {
     void print(String... args) {
         System.out.println("Base......test");
     }
 }
 
-// 子类，覆写父类方法
+// subclass, override
 class Sub extends Base {
     @Override
     void print(String[] args) {

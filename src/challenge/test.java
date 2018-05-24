@@ -1,11 +1,10 @@
 package challenge;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class test {
     public static void main(String[] args) {
-        String str = "0123456789";
-
-        for (String s : str.split("")) {
-            System.out.println(s);
-        }
+        System.out.println(Tools.toQuo(100));
     }
 }

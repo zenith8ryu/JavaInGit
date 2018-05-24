@@ -1,11 +1,11 @@
-package codeCheck.yumemi.code;
+package interview.yumemi.code;
 
 import tools.CsvReader;
 
 import java.util.*;
 
 public class problem2 {
-    private static String filePath = "./src/codeCheck/yumemi/resource/0.csv";
+    private static String filePath = "./src/challenge/yumemi/resource/0.csv";
 
 
     public static void main(String[] args) {

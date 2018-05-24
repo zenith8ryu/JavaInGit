@@ -7,12 +7,12 @@ enum Spiciness {
 public class EnumIterateMtd {
     public static void main(String[] args) {
         for (Spiciness sp : Spiciness.values()) {
-            System.out.println("静态方法获取" + sp);
+            System.out.println("get by static method" + sp);
         }
 
         Class clazz = Spiciness.class;
         for (Object obj : clazz.getEnumConstants()) {
-            System.out.println("反射获取" + obj);
+            System.out.println("get by reflection" + obj);
         }
     }
 }
