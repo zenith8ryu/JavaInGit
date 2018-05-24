@@ -42,49 +42,6 @@ public class NerilTest {
         return ansList;
     }
 
-    public static boolean ansCheck(HashMap<Integer, String> ansList) {
-        //Q3
-        if () {
-
-            return false;
-        }
-
-
-        return true;
-    }
-
-    public boolean ansChkQ3(HashMap<Integer, String> ansList) {
-        String A3 = ansList.get(3);
-
-        String A6 = ansList.get(6);
-        String A2 = ansList.get(2);
-        String A4 = ansList.get(4);
-
-        switch (A3) {
-            case "A":
-                if (A6.equals(A2) && A6.equals(A4) && !A6.equals(A3)) {
-                    return true;
-                }
-                break;
-            case "B":
-                if (A2 == A3 && A4 == A3 && A6 != A3) {
-                    return true;
-                }
-                break;
-            case "C":
-                if (A6 == A3 && A4 == A3 && A2 != A3) {
-                    return true;
-                }
-                break;
-            case "D":
-                break;
-
-        }
-
-        return false;
-    }
-
-
 }
 
 

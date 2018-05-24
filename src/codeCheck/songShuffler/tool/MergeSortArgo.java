@@ -1,4 +1,4 @@
-package interview.songShuffler.tool;
+package codeCheck.songShuffler.tool;
 
 /**
  * A common merge-sort realization by in-place algorithm.

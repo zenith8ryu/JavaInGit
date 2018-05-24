@@ -1,4 +1,4 @@
-package interview.songShuffler.tool;
+package codeCheck.songShuffler.tool;
 
 import java.io.BufferedReader;
 import java.io.File;

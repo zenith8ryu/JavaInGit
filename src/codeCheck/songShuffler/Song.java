@@ -1,4 +1,4 @@
-package interview.songShuffler;
+package codeCheck.songShuffler;
 
 public class Song {
     String genre;

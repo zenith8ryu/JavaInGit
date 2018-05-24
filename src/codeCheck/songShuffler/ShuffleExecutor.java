@@ -1,4 +1,4 @@
-package interview.songShuffler;
+package codeCheck.songShuffler;
 
 public class ShuffleExecutor implements ShuffleEngine {
     private Song[] currentSongsList;

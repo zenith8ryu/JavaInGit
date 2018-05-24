@@ -1,6 +1,6 @@
-package interview.songShuffler;
+package codeCheck.songShuffler;
 
-import interview.songShuffler.tool.MergeSortArgo;
+import codeCheck.songShuffler.tool.MergeSortArgo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
