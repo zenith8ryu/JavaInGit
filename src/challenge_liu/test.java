@@ -1,6 +1,6 @@
 package challenge_liu;
 
-import challenge_liu.enums.Question;
+import challenge_liu_v2.enums.Question;
 
 public class test {
     public static void main(String[] args) {

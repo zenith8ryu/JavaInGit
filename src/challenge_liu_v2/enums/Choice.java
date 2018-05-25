@@ -1,4 +1,4 @@
-package challenge_liu.enums;
+package challenge_liu_v2.enums;
 
 public enum Choice {
     A,
