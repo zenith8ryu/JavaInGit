@@ -1,6 +1,6 @@
-package challenge.question;
+package challenge_liu.question;
 
-import challenge.Tools;
+import challenge_liu.Tools;
 
 import java.util.ArrayList;
 import java.util.HashMap;

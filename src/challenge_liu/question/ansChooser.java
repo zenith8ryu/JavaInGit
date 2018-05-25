@@ -1,4 +1,4 @@
-package challenge.question;
+package challenge_liu.question;
 
 public class ansChooser {
     public static boolean execute(String currentAns, boolean ans1, boolean ans2, boolean ans3, boolean ans4) {

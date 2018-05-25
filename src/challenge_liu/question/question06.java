@@ -1,8 +1,8 @@
-package challenge.question;
+package challenge_liu.question;
 
 import java.util.HashMap;
 
-public class question09 {
+public class question06 {
     public static boolean ansCheck(HashMap<Integer, String> ansList) {
         String A1 = ansList.get(1);
         String A2 = ansList.get(2);
@@ -15,11 +15,11 @@ public class question09 {
         String A9 = ansList.get(9);
         String A10 = ansList.get(10);
 
-        boolean ans1 = A1.equals(A6) == A6.equals(A5);
-        boolean ans2 = A1.equals(A6) == A10.equals(A5);
-        boolean ans3 = A1.equals(A6) == A2.equals(A5);
-        boolean ans4 = A1.equals(A6) == A9.equals(A5);
+        boolean ans1 = A8.equals(A2) && A8.equals(A4);
+        boolean ans2 = A8.equals(A1) && A8.equals(A6);
+        boolean ans3 = A8.equals(A3) && A8.equals(A10);
+        boolean ans4 = A8.equals(A5) && A8.equals(A9);
 
-        return ansChooser.execute(A9, ans1, ans2, ans3, ans4);
+        return ansChooser.execute(A6, ans1, ans2, ans3, ans4);
     }
 }

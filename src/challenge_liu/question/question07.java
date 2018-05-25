@@ -1,4 +1,4 @@
-package challenge.question;
+package challenge_liu.question;
 
 import java.util.HashMap;
 

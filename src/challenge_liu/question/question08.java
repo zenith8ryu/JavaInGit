@@ -1,6 +1,6 @@
-package challenge.question;
+package challenge_liu.question;
 
-import challenge.Tools;
+import challenge_liu.Tools;
 
 import java.util.HashMap;
 
@@ -17,10 +17,10 @@ public class question08 {
         String A9 = ansList.get(9);
         String A10 = ansList.get(10);
 
-        boolean ans1 = (Math.abs(Tools.strToAscii(A7) - Tools.strToAscii(A1)) == 1);
-        boolean ans2 = (Math.abs(Tools.strToAscii(A5) - Tools.strToAscii(A1)) == 1);
-        boolean ans3 = (Math.abs(Tools.strToAscii(A2) - Tools.strToAscii(A1)) == 1);
-        boolean ans4 = (Math.abs(Tools.strToAscii(A10) - Tools.strToAscii(A1)) == 1);
+        boolean ans1 = !(Math.abs(Tools.strToAscii(A7) - Tools.strToAscii(A1)) == 1);
+        boolean ans2 = !(Math.abs(Tools.strToAscii(A5) - Tools.strToAscii(A1)) == 1);
+        boolean ans3 = !(Math.abs(Tools.strToAscii(A2) - Tools.strToAscii(A1)) == 1);
+        boolean ans4 = !(Math.abs(Tools.strToAscii(A10) - Tools.strToAscii(A1)) == 1);
 
         return ansChooser.execute(A8, ans1, ans2, ans3, ans4);
     }

@@ -1,4 +1,4 @@
-package challenge;
+package challenge_liu;
 
 import java.util.HashMap;
 import java.util.List;
