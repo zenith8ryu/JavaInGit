@@ -4,7 +4,8 @@ import challenge_liu_v2.test.ClassInitializingTester;
 
 public class TestExecutor {
     public static void main(String[] args) {
-        classInitializingTest();
+//        classInitializingTest();
+        formatTest();
     }
 
     private static void classInitializingTest() {
@@ -16,5 +17,10 @@ public class TestExecutor {
         System.out.println("Initializing instance: sub 2");
         ClassInitializingTester.Sub sub2 = new ClassInitializingTester.Sub();
         System.out.println("initialization completed");
+    }
+
+
+    private static void formatTest() {
+        FormatTester.exec();
     }
 }
