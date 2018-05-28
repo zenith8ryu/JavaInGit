@@ -19,6 +19,20 @@ public abstract class AbstractQuestion {
         this.label = label;
     }
 
+    public boolean exec(Choice anwser) {
+        setup();
+        choices = initChoices();
+        return test(anwser);
+    }
+
+    protected void setup() {
+        return;
+    }
+
+    public boolean test(Choice answer) {
+        return choices.get(answer.ordinal()).execTest(  );
+    }
+
     protected List<ChoiceContent> initChoices() {
         List<ChoiceContent> choices = new ArrayList<>();
         ChoiceContent choiceA = initChoiceA();
