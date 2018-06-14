@@ -7,12 +7,11 @@ public class CharIdxTester {
         String currAnswers = "1234567890";
         for (int j = 0; j < 10; j++) {
             int currAnswer = Character.getNumericValue(currAnswers.charAt(j));
-            if (currAnswer == 1) {
-                System.out.println(currAnswer);
-            }
+            System.out.println(currAnswer);
         }
     }
 
     public static void main(String[] args) {
+        exec();
     }
 }

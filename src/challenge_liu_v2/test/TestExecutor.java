@@ -1,7 +1,5 @@
 package challenge_liu_v2.test;
 
-import challenge_liu_v2.test.ClassInitializingTester;
-
 public class TestExecutor {
     public static void main(String[] args) {
 //        classInitializingTest();
@@ -23,4 +21,9 @@ public class TestExecutor {
     private static void formatTest() {
         FormatTester.exec();
     }
+
+    private static void enumTest() {
+        EnumTester.exec();
+    }
+
 }

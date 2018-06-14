@@ -7,4 +7,7 @@ public class FormatTester {
 //        System.out.println(String.format("%.2f", 10.0000009));
         System.out.println(String.format("%.4f%%(%d/%d)", 1.23, 2, 10));
     }
+
+
+
 }
