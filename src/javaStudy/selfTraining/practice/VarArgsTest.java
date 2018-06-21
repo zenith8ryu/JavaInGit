@@ -24,7 +24,7 @@ public class VarArgsTest {
 // super class
 class Base {
     void print(String... args) {
-        System.out.println("Base......test");
+        System.out.println("Base......Test");
     }
 }
 
@@ -32,6 +32,6 @@ class Base {
 class Sub extends Base {
     @Override
     void print(String[] args) {
-        System.out.println("Sub......test");
+        System.out.println("Sub......Test");
     }
 }
